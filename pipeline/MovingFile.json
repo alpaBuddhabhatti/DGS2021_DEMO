@@ -1,5 +1,5 @@
 {
-	"name": "PL_BLOB_SQL_PARAMETERS",
+	"name": "MovingFile",
 	"properties": {
 		"activities": [
 			{
@@ -16,11 +16,11 @@
 				"userProperties": [
 					{
 						"name": "Source",
-						"value": "@{concat(pipeline().parameters.SpecCode,'-in')}//@{concat(pipeline().parameters.FileName,'.csv')}"
+						"value": "@{concat(pipeline().parameters.spec_code,'-in')}//@{pipeline().parameters.file_name}"
 					},
 					{
 						"name": "Destination",
-						"value": "@{'dbo'}.@{pipeline().parameters.FileName}"
+						"value": "@{concat(pipeline().parameters.spec_code,'-staging')}//@{pipeline().parameters.file_name}"
 					}
 				],
 				"typeProperties": {
@@ -29,10 +29,6 @@
 						"storeSettings": {
 							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
-							"wildcardFileName": {
-								"value": "@concat(pipeline().parameters.FileName,'.csv')",
-								"type": "Expression"
-							},
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
@@ -40,9 +36,15 @@
 						}
 					},
 					"sink": {
-						"type": "AzureSqlSink",
-						"writeBehavior": "insert",
-						"disableMetricsCollection": false
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
+						}
 					},
 					"enableStaging": false,
 					"translator": {
@@ -60,11 +62,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"FileName": {
-								"value": "@concat(pipeline().parameters.FileName,'.csv')",
+								"value": "@pipeline().parameters.file_name",
 								"type": "Expression"
 							},
 							"speccode": {
-								"value": "@pipeline().parameters.SpecCode",
+								"value": "@pipeline().parameters.spec_code",
 								"type": "Expression"
 							}
 						}
@@ -72,39 +74,35 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_ASQL_SINK_copy",
+						"referenceName": "DS_ADLS_STAGING",
 						"type": "DatasetReference",
 						"parameters": {
-							"TableName": {
-								"value": "@pipeline().parameters.FileName",
+							"FileName": {
+								"value": "@pipeline().parameters.file_name",
 								"type": "Expression"
 							},
-							"SchemaName": "dbo"
+							"Speccode": {
+								"value": "@pipeline().parameters.spec_code",
+								"type": "Expression"
+							}
 						}
 					}
 				]
 			}
 		],
 		"parameters": {
-			"FileName": {
+			"file_name": {
 				"type": "string",
-				"defaultValue": "events"
+				"defaultValue": "moviesDB.csv"
 			},
-			"SpecCode": {
+			"spec_code": {
 				"type": "string",
-				"defaultValue": "file"
-			}
-		},
-		"variables": {
-			"strvalue": {
-				"type": "String"
+				"defaultValue": "movie"
 			}
 		},
 		"folder": {
-			"name": "All/DEMO 3"
+			"name": "DEMO"
 		},
-		"annotations": [],
-		"lastPublishTime": "2021-08-03T22:29:39Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }

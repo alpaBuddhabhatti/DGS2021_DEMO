@@ -1,5 +1,5 @@
 {
-	"name": "MovieTransformation",
+	"name": "MovieTransformationSQL",
 	"properties": {
 		"activities": [
 			{
@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "TransformationDemo",
+						"referenceName": "TransformationDemoSQL",
 						"type": "DataFlowReference",
 						"parameters": {
 							"FileName": {
@@ -40,14 +40,12 @@
 								}
 							},
 							"MoviesSink": {
-								"Speccode": {
-									"value": "@pipeline().parameters.Speccode",
+								"TableName": {
+									"value": "@trim(replace(pipeline().parameters.FileName,'.csv',''))",
 									"type": "Expression"
-								}
-							},
-							"AllData": {
-								"Speccode": {
-									"value": "@pipeline().parameters.Speccode",
+								},
+								"SchemaName": {
+									"value": "dbo",
 									"type": "Expression"
 								}
 							}
@@ -72,7 +70,7 @@
 			}
 		},
 		"folder": {
-			"name": "All/Transforming"
+			"name": "DEMO"
 		},
 		"annotations": [],
 		"lastPublishTime": "2021-08-12T17:06:05Z"
