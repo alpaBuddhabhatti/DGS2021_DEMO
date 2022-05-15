@@ -1,5 +1,5 @@
 {
-	"name": "PL_BLOB_SQL_DEMO",
+	"name": "ADF_AF_ALA_Demo1",
 	"properties": {
 		"activities": [
 			{
@@ -60,9 +60,9 @@
 								},
 								"sink": {
 									"type": "AzureSqlSink",
+									"writeBehavior": "insert",
 									"tableOption": "autoCreate",
-									"disableMetricsCollection": false,
-									"writeBehavior": "insert"
+									"disableMetricsCollection": false
 								},
 								"enableStaging": false,
 								"translator": {
@@ -83,7 +83,7 @@
 											"value": "@concat(item().name,'.csv')",
 											"type": "Expression"
 										},
-										"SpecCode": {
+										"speccode": {
 											"value": "@pipeline().parameters.SpecCode",
 											"type": "Expression"
 										}
@@ -215,7 +215,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://prod-14.uksouth.logic.azure.com:443/workflows/69a319b95102497ebb0bb28d4abced10/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=nstnBZt5LcGuqmsGCFYLcj5SG05j6NHnvOEy7T3MKjk",
+					"url": {
+						"value": "https://prod-16.eastus.logic.azure.com:443/workflows/171e15027df64e98ae06454274e07596/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=38bgZZEJstHLzhg7cUXPh3HuiQi6i12BVRBOhuEd6tM",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"body": {
 						"value": "{\n\"title\": \"PIPELINE RUN FINISHED\",\n\"dataFactoryName\" : \"@{pipeline().DataFactory}\",\n\"pipelineName\" : \"@{pipeline().Pipeline}\",\n\"pipelineRunId\": \"@{pipeline().RunId}\",\n\"message\":\"@{activity('Create Manifest').error.message}\",\n\"time\" : \"@{pipeline().TriggerTime}\",\n\"color\":\"Red\"\n}\n",
@@ -243,7 +246,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"url": "https://prod-14.uksouth.logic.azure.com:443/workflows/69a319b95102497ebb0bb28d4abced10/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=nstnBZt5LcGuqmsGCFYLcj5SG05j6NHnvOEy7T3MKjk",
+					"url": {
+						"value": "https://prod-16.eastus.logic.azure.com:443/workflows/171e15027df64e98ae06454274e07596/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=38bgZZEJstHLzhg7cUXPh3HuiQi6i12BVRBOhuEd6tM",
+						"type": "Expression"
+					},
 					"method": "POST",
 					"body": {
 						"value": "{\n\"title\": \"PIPELINE RUN FINISHED\",\n\"dataFactoryName\" : \"@{pipeline().DataFactory}\",\n\"pipelineName\" : \"@{pipeline().Pipeline}\",\n\"pipelineRunId\": \"@{pipeline().RunId}\",\n\"message\":\"\",\n\"time\" : \"@{pipeline().TriggerTime}\",\n\"color\":\"Green\"\n}\n",
@@ -268,7 +274,7 @@
 			}
 		},
 		"folder": {
-			"name": "DEMO 3"
+			"name": "ADF_AF_ALA"
 		},
 		"annotations": [],
 		"lastPublishTime": "2021-08-03T22:29:39Z"
