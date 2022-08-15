@@ -18,6 +18,12 @@
 					"dataflow": {
 						"referenceName": "TransformationDemo_All",
 						"type": "DataFlowReference",
+						"parameters": {
+							"Speccode": {
+								"value": "'@{pipeline().parameters.Speccode}'",
+								"type": "Expression"
+							}
+						},
 						"datasetParameters": {
 							"MovieDB": {
 								"Speccode": {
