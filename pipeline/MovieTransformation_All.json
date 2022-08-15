@@ -16,30 +16,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "TransformationDemo",
+						"referenceName": "TransformationDemo_All",
 						"type": "DataFlowReference",
-						"parameters": {
-							"FileName": {
-								"value": "'@{pipeline().parameters.FileName}'",
-								"type": "Expression"
-							},
-							"Speccode": {
-								"value": "'@{pipeline().parameters.Speccode}'",
-								"type": "Expression"
-							}
-						},
 						"datasetParameters": {
 							"MovieDB": {
-								"FileName": {
-									"value": "@pipeline().parameters.FileName",
-									"type": "Expression"
-								},
-								"Speccode": {
-									"value": "@pipeline().parameters.Speccode",
-									"type": "Expression"
-								}
-							},
-							"MoviesSink": {
 								"Speccode": {
 									"value": "@pipeline().parameters.Speccode",
 									"type": "Expression"
