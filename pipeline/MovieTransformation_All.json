@@ -25,6 +25,10 @@
 									"type": "Expression"
 								}
 							},
+							"MoviesSink": {
+								"TableName": "gooddata",
+								"SchemaName": "dbo"
+							},
 							"AllData": {
 								"Speccode": {
 									"value": "@pipeline().parameters.Speccode",
