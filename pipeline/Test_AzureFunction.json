@@ -22,10 +22,6 @@
 						"value": "{\n\"name\":\"file-in\",\n\"values\": [\"events.csv|1\"]\n}",
 						"type": "Expression"
 					}
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureFunction1",
-					"type": "LinkedServiceReference"
 				}
 			}
 		],
