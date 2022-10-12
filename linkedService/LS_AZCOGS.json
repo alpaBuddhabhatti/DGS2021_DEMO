@@ -1,0 +1,12 @@
+{
+	"name": "LS_AZCOGS",
+	"properties": {
+		"annotations": [],
+		"type": "RestService",
+		"typeProperties": {
+			"url": "https://dsp2021-sentiment.cognitiveservices.azure.com/",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
