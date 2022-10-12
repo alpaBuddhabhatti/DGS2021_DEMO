@@ -9,7 +9,7 @@
 				"policy": {
 					"timeout": "7.00:00:00",
 					"retry": 0,
-					"retryIntervalInSeconds": 30,
+					"retryIntervalInSeconds": 0,
 					"secureOutput": false,
 					"secureInput": false
 				},
@@ -65,7 +65,7 @@
 							"policy": {
 								"timeout": "7.00:00:00",
 								"retry": 0,
-								"retryIntervalInSeconds": 30,
+								"retryIntervalInSeconds": 0,
 								"secureOutput": false,
 								"secureInput": false
 							},
@@ -79,7 +79,7 @@
 									"Accept": "application/json"
 								},
 								"body": {
-									"value": "@concat('{\"documents\":[\n\t                     {\n\t\t\t\t\t\t  \"language\": \"en\",\"id\": \"',\n\t                         item().CustomerID ,\n\t\t\t\t\t\t\t'\", \"text\": \"' , item().Feedback ,'\"\n\t\t\t\t\t\t }\n\t\t\t\t\t\t ]\n\t\t\t\t\t\t }')",
+									"value": "@concat('{\"documents\":[\n\t                      {\n\t\t\t\t\t\t  \"language\": \"en\",\n\t\t\t\t\t\t   \"id\": \"', item().CustomerID ,'\", \n\t\t\t\t\t\t   \"text\": \"' , item().Feedback ,'\"\n\t\t\t\t\t\t  }\n\t\t\t\t\t\t]\n\t\t}')",
 									"type": "Expression"
 								}
 							}
