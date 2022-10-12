@@ -1,0 +1,12 @@
+{
+	"name": "DS_AZCS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_AZCOGS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "RestResource",
+		"schema": []
+	}
+}
