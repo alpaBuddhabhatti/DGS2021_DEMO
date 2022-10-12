@@ -26,6 +26,7 @@
 				"     validateSchema: false,",
 				"     format: 'rest',",
 				"     timeout: 30,",
+				"     headers: ['Ocp-Apim-Subscription-Key' -> '6dbd673a9cf645e89fcb8c0cf1fd751b', 'Content-Type' -> 'application/json', 'Accept' -> 'application/json'],",
 				"     httpMethod: 'POST',",
 				"     body: (concat('{\"documents\":[{ \"language\": \"en\",\"id\": \"1\", \"text\": \"This is test\"}]}')),",
 				"     paginationRules: ['supportRFC5988' -> 'true'],",
