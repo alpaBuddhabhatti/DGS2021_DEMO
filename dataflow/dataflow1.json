@@ -10,12 +10,22 @@
 						"type": "DatasetReference"
 					},
 					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "Xml1",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
 				}
 			],
 			"sinks": [],
 			"transformations": [
 				{
 					"name": "flatten1"
+				},
+				{
+					"name": "flatten2"
 				}
 			],
 			"scriptLines": [
@@ -28,16 +38,30 @@
 				"     validationMode: 'none',",
 				"     namespaces: false,",
 				"     wildcardPaths:[('*.xml')]) ~> source1",
-				"source1 foldDown(unroll(Customers.row.Address.Line2, Customers.row.Address.Line2),",
+				"source(output(",
+				"          Customers as (row as (Address as (Line1 as short, Line2 as string, Line3 as string)[], CUSTOMERNO as short, EMAIL as string, OPERATION as string)[])",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     validationMode: 'none',",
+				"     namespaces: true) ~> source2",
+				"source1 foldDown(unroll(),",
 				"     mapColumn(",
-				"          CUSTOMERNO = Customers.row.CUSTOMERNO,",
-				"          EMAIL = Customers.row.EMAIL,",
-				"          OPERATION = Customers.row.OPERATION,",
-				"          Line1 = Customers.row.Address.Line1,",
-				"          Line2 = Customers.row.Address.Line2",
+				"          Customers",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten1"
+				"     skipDuplicateMapOutputs: false) ~> flatten1",
+				"source2 foldDown(unroll(Customers.row.Address),",
+				"     mapColumn(",
+				"          Line1 = Customers.row.Address.Line1,",
+				"          Line2 = Customers.row.Address.Line2,",
+				"          Line3 = Customers.row.Address.Line3,",
+				"          CUSTOMERNO = Customers.row.CUSTOMERNO,",
+				"          EMAIL = Customers.row.EMAIL",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> flatten2"
 			]
 		}
 	}
