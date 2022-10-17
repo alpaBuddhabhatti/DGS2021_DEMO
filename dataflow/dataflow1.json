@@ -52,7 +52,7 @@
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
 				"     skipDuplicateMapOutputs: false) ~> flatten1",
-				"source2 foldDown(unroll(Customers.row.Address),",
+				"source2 foldDown(unroll(Customers.row.Address, Customers.row.Address),",
 				"     mapColumn(",
 				"          Line1 = Customers.row.Address.Line1,",
 				"          Line2 = Customers.row.Address.Line2,",
