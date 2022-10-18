@@ -1,0 +1,41 @@
+{
+	"name": "CustomerTrasformation",
+	"properties": {
+		"activities": [
+			{
+				"name": "Data flow",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflowXML",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sinkAzureDataLank": {
+								"TableName": "CustomersInfo ",
+								"SchemaName": "dbo"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "Transforming"
+		},
+		"annotations": []
+	}
+}
