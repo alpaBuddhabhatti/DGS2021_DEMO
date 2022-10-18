@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy data1",
+				"name": "Copy data",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -46,82 +46,55 @@
 						"mappings": [
 							{
 								"source": {
-									"path": "$['ParkingData']['FileCreationDateTime']"
+									"path": "$['Customers']['row'][0]['CUSTOMERNO']"
 								},
 								"sink": {
-									"name": "FileCreationDateTime",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['TransactionDate']"
-								},
-								"sink": {
-									"name": "TransactionDate",
-									"type": "DateTime"
-								}
-							},
-							{
-								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['ParkID']"
-								},
-								"sink": {
-									"name": "ParkID",
+									"name": "CUSTOMERNO",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['MId']"
+									"path": "$['Customers']['row'][0]['OPERATION']"
 								},
 								"sink": {
-									"name": "MId",
+									"name": "OPERATION",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['PaidParking']['PaidTrans'][0]['StartTime']"
+									"path": "$['Customers']['row'][0]['EMAIL']"
 								},
 								"sink": {
-									"name": "ParkingData_ParkingInfo'][0]['Park_PMachine_PaidParking_PaidTrans'][0]['StartTime",
+									"name": "EMAIL",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['PaidParking']['PaidTrans'][0]['AmountPaid']"
+									"path": "$['Customers']['row'][0]['Address'][0]['Line1']"
 								},
 								"sink": {
-									"name": "AmountPaid",
-									"type": "Double"
-								}
-							},
-							{
-								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['FreeParking']['accepted']['FreeTrans'][0]['StartTime']"
-								},
-								"sink": {
-									"name": "ParkingData_ParkingInfo'][0]['Park_PMachine_FreeParking_accepted_FreeTrans'][0]['StartTime",
+									"name": "Line1",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['FreeParking']['accepted']['FreeTrans'][0]['Barcode']"
+									"path": "$['Customers']['row'][0]['Address'][0]['Line2']"
 								},
 								"sink": {
-									"name": "ParkingData_ParkingInfo'][0]['Park_PMachine_FreeParking_accepted_FreeTrans'][0]['Barcode",
+									"name": "Line2",
 									"type": "String"
 								}
 							},
 							{
 								"source": {
-									"path": "$['ParkingData']['ParkingInfo'][0]['Park']['PMachine']['FreeParking']['rejected']['FreeTrans']['StartTime']"
+									"path": "$['Customers']['row'][0]['Address'][0]['Line3']"
 								},
 								"sink": {
-									"name": "ParkingData_ParkingInfo'][0]['Park_PMachine_FreeParking_rejected_FreeTrans_StartTime",
+									"name": "Line3",
 									"type": "String"
 								}
 							}
