@@ -5,6 +5,9 @@
 			"referenceName": "LS_ADLS",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "General"
+		},
 		"annotations": [],
 		"type": "Xml",
 		"typeProperties": {
