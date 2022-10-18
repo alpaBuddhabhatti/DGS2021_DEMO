@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "ParkingInfo.XML",
+				"fileName": "Customers.xml",
 				"fileSystem": "file-staging"
 			}
 		}
