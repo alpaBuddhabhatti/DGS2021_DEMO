@@ -16,7 +16,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataflow": {
-						"referenceName": "dataflowXML",
+						"referenceName": "CustomersInfo",
 						"type": "DataFlowReference",
 						"datasetParameters": {
 							"sinkAzureDataLank": {

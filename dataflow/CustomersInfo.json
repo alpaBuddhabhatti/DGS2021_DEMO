@@ -1,5 +1,5 @@
 {
-	"name": "dataflowXML",
+	"name": "CustomersInfo",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
