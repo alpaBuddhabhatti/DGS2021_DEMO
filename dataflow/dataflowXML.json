@@ -55,7 +55,14 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sinkAzureDataLank"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          Line1,",
+				"          Line2,",
+				"          CUSTOMERNO,",
+				"          EMAIL,",
+				"          OPERATION",
+				"     )) ~> sinkAzureDataLank"
 			]
 		}
 	}
