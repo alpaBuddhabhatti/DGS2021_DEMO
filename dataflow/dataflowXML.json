@@ -62,7 +62,8 @@
 				"          Line2,",
 				"          CUSTOMERNO,",
 				"          EMAIL,",
-				"          OPERATION",
+				"          OPERATION,",
+				"          Line3",
 				"     )) ~> sinkAzureDataLank"
 			]
 		}
