@@ -1,5 +1,5 @@
 {
-	"name": "dataflow1",
+	"name": "dataflowXML",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -9,13 +9,22 @@
 						"referenceName": "Xml1",
 						"type": "DatasetReference"
 					},
-					"name": "CustomerDataXML"
+					"name": "CustomerDataXML",
+					"description": "Import data from CustomerDataXML"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ASQL",
+						"type": "DatasetReference"
+					},
+					"name": "sinkAzureDataLank"
+				}
+			],
 			"transformations": [
 				{
-					"name": "flatten2"
+					"name": "flattenAddress"
 				}
 			],
 			"scriptLines": [
@@ -37,7 +46,17 @@
 				"          OPERATION = Customers.row.OPERATION",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> flatten2"
+				"     skipDuplicateMapOutputs: false) ~> flattenAddress",
+				"flattenAddress sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkAzureDataLank"
 			]
 		}
 	}
