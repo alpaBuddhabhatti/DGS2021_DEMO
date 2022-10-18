@@ -23,14 +23,6 @@
 								"TableName": "CustomersInfo ",
 								"SchemaName": "dbo"
 							}
-						},
-						"linkedServiceParameters": {
-							"sinkAzureDataLank": {
-								"schemaLinkedService": {
-									"TableName": "CustomersInfo",
-									"SchemaName": "dbo"
-								}
-							}
 						}
 					},
 					"compute": {
