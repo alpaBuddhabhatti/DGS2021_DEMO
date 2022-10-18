@@ -40,7 +40,6 @@
 				"     mapColumn(",
 				"          Line1 = Customers.row.Address.Line1,",
 				"          Line2 = Customers.row.Address.Line2,",
-				"          Line3 = Customers.row.Address.Line3,",
 				"          CUSTOMERNO = Customers.row.CUSTOMERNO,",
 				"          EMAIL = Customers.row.EMAIL,",
 				"          OPERATION = Customers.row.OPERATION",
