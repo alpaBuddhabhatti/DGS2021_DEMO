@@ -1,0 +1,9 @@
+{
+	"name": "CopyToXML",
+	"properties": {
+		"folder": {
+			"name": "DataMovements"
+		},
+		"annotations": []
+	}
+}
