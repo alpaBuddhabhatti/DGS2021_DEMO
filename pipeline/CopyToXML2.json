@@ -1,0 +1,9 @@
+{
+	"name": "CopyToXML2",
+	"properties": {
+		"folder": {
+			"name": "XML"
+		},
+		"annotations": []
+	}
+}
