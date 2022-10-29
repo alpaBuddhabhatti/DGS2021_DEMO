@@ -1,8 +1,8 @@
 {
-	"name": "CopyToXML",
+	"name": "CopyToXML1",
 	"properties": {
 		"folder": {
-			"name": "DataMovements"
+			"name": "XML"
 		},
 		"annotations": []
 	}
