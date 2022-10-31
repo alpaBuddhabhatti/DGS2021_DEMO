@@ -25,7 +25,7 @@
 						"formatSettings": {
 							"type": "XmlReadSettings",
 							"validationMode": "none",
-							"detectDataType": true,
+							"detectDataType": false,
 							"namespaces": false
 						}
 					},
@@ -58,7 +58,7 @@
 								"type": "Expression"
 							},
 							"FileName": {
-								"value": "simpledate.xml",
+								"value": "simpledate.csv",
 								"type": "Expression"
 							}
 						}
