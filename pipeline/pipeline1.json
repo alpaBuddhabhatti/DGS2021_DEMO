@@ -15,9 +15,14 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"functionName": "Function",
-					"method": "GET",
-					"body": ""
+					"functionName": "CreateManifest",
+					"method": "POST",
+					"body": {
+						"name": "file-in",
+						"values": [
+							"events.csv|2"
+						]
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureFunction1",
