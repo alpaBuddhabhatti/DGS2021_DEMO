@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "AzureFunction",
 		"typeProperties": {
-			"functionAppUrl": "https://azdev-azdev-asp-demo2022-funapp.azurewebsites.net",
+			"functionAppUrl": "https://azdev-azdev-fapp-passummit2022-funapp.azurewebsites.net",
 			"functionKey": {
 				"type": "AzureKeyVaultSecret",
 				"store": {
