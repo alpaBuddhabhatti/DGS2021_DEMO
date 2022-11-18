@@ -7,7 +7,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Execute Pipeline1",
+						"activity": "PL_SENTIMENT_ANAYSIS",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -38,7 +38,7 @@
 				"type": "WebActivity",
 				"dependsOn": [
 					{
-						"activity": "Execute Pipeline1",
+						"activity": "PL_SENTIMENT_ANAYSIS",
 						"dependencyConditions": [
 							"Failed"
 						]
@@ -59,13 +59,13 @@
 					},
 					"method": "POST",
 					"body": {
-						"value": "{\n\"title\": \"PIPELINE RUN FINISHED\",\n\"dataFactoryName\" : \"@{pipeline().DataFactory}\",\n\"pipelineName\" : \"@{pipeline().Pipeline}\",\n\"pipelineRunId\": \"@{pipeline().RunId}\",\n\"message\":\"@{activity('Data Flow').output.error.message}\",\n\"time\" : \"@{pipeline().TriggerTime}\",\n\"color\":\"Red\"\n}\n",
+						"value": "{\n\"title\": \"PIPELINE RUN FINISHED\",\n\"dataFactoryName\" : \"@{pipeline().DataFactory}\",\n\"pipelineName\" : \"@{pipeline().Pipeline}\",\n\"pipelineRunId\": \"@{pipeline().RunId}\",\n\"message\":\"@{activity('PL_SENTIMENT_ANAYSIS').output.error.message}\",\n\"time\" : \"@{pipeline().TriggerTime}\",\n\"color\":\"Red\"\n}\n",
 						"type": "Expression"
 					}
 				}
 			},
 			{
-				"name": "Execute Pipeline1",
+				"name": "PL_SENTIMENT_ANAYSIS",
 				"type": "ExecutePipeline",
 				"dependsOn": [],
 				"userProperties": [],
@@ -74,7 +74,17 @@
 						"referenceName": "PL_SENTIMENT_ANAYSIS_Child",
 						"type": "PipelineReference"
 					},
-					"waitOnCompletion": true
+					"waitOnCompletion": true,
+					"parameters": {
+						"SpecCode": {
+							"value": "feedback",
+							"type": "Expression"
+						},
+						"FileName": {
+							"value": "Customer Feedback",
+							"type": "Expression"
+						}
+					}
 				}
 			}
 		],
